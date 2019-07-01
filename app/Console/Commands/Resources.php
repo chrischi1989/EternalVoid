@@ -34,11 +34,11 @@ class Resources extends Command
     /**
      * Execute the console command.
      *
-     * @return mixed
+     * @return boolean
      */
     public function handle(TickController $tickController)
     {
-        while(true) {
+        while (true) {
             $tickController();
             sleep(1);
         }
