@@ -128,16 +128,18 @@ class RegisterAction
         $planetProperties = $this->newPlanet($request, $userUuid);
         $planet           = $this->findStartPlanetTask->run();
 
-        return $this->createUserTask->run($user) &&
-               $this->createProfileTask->run($profile) &&
-               $this->setStartPlanetTask->run($planet, $planetProperties) &&
-               $this->setStartResearchTask->run($user) &&
-               $this->setStartBuildingsTask->run($planet) &&
-               $this->setStartProductionTask->run($planet) &&
-               $this->setStartResourcesTask->run($planet) &&
-               $this->setStartDefenseTask->run($planet) &&
-               $this->setStartUnitsTask->run($planet) &&
-               $this->sendActivationEmailTask->run($user, $profile, $userPassword);
+        if(!$this->createUserTask->run($user)) return false;
+        if(!$this->createProfileTask->run($profile)) return false;
+        if(!$this->setStartPlanetTask->run($planet, $planetProperties)) return false;
+        if(!$this->setStartResearchTask->run($user)) return false;
+        if(!$this->setStartBuildingsTask->run($planet)) return false;
+        if(!$this->setStartProductionTask->run($planet)) return false;
+        if(!$this->setStartResourcesTask->run($planet)) return false;
+        if(!$this->setStartDefenseTask->run($planet)) return false;
+        if(!$this->setStartUnitsTask->run($planet)) return false;
+        if(!$this->sendActivationEmailTask->run($user, $profile, $userPassword)) return false;
+
+        return true;
     }
 
     /**
