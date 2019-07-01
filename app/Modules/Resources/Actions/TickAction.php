@@ -26,20 +26,20 @@ class TickAction
             $production = $planet->production;
             $resources  = $planet->resources;
 
-            if($resources->aluminium + $resources->titan + $resources->silizium <= $resources->lager_cap) {
+            if ($resources->aluminium + $resources->titan + $resources->silizium <= $resources->lager_cap) {
                 $resources->aluminium += $production->aluminium * $this->getMultiplier($planet->bonus, $research->geologie) + $this->game['aluminium'];
                 $resources->titan     += $production->titan * $this->getMultiplier($planet->bonus, $research->speziallegierungen) + $this->game['titan'];
                 $resources->silizium  += $production->silizium * $this->getMultiplier($planet->bonus, $research->geologie) + $this->game['silizium'];
                 $resources->lager_int  = ($resources->aluminium + $resources->titan + $resources->silizium) / $resources->lager_cap;
             }
 
-            if($resources->arsen + $resources->wasserstoff <= $resources->speziallager_cap) {
+            if ($resources->arsen + $resources->wasserstoff <= $resources->speziallager_cap) {
                 $resources->arsen           += $production->arsen * $this->getMultiplier($planet->bonus, $research->speziallegierungen);
                 $resources->wasserstoff     += $production->wasserstoff * $this->getMultiplier($planet->bonus, $research->materiestabilisierung);
                 $resources->speziallager_int = ($resources->arsen + $resources->Wasserstoff) / $resources->speziallager_cap;
             }
 
-            if($resources->antimaterie <= $resources->tanks_cap) {
+            if ($resources->antimaterie <= $resources->tanks_cap) {
                 $resources->antimaterie += $production->antimaterie * $this->getMultiplier($planet->bonus, $research->materiestabilisierung);
                 $resources->tanks_int    = $resources->antimaterie / $resources->tanks_cap;
             }

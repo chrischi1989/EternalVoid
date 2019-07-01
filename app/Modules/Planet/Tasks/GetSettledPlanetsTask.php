@@ -25,7 +25,7 @@ class GetSettledPlanetsTask
     }
 
     /**
-     * @param  array  $with
+     * @param  string[]  $with
      * @return Planet[]|\Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection
      */
     public function run($with = [])
