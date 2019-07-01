@@ -79,6 +79,11 @@ class CreateGameDataSubAction
         $this->setStartUnitsTask      = $setStartUnitsTask;
     }
 
+    /**
+     * @param RegisterRequest $request
+     * @param array $createdUserData
+     * @return bool
+     */
     public function run(RegisterRequest $request, array $createdUserData)
     {
         $planetProperties = $this->newPlanet($request, $createdUserData['user']['uuid']);
