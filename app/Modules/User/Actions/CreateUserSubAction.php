@@ -72,8 +72,8 @@ class CreateUserSubAction
 
     /**
      * @param RegisterRequest $request
-     * @param $userUuid
-     * @param $userPassword
+     * @param \Ramsey\Uuid\UuidInterface $userUuid
+     * @param string $userPassword
      *
      * @return array
      */
@@ -95,7 +95,7 @@ class CreateUserSubAction
 
     /**
      * @param RegisterRequest $request
-     * @param $userUuid
+     * @param \Ramsey\Uuid\UuidInterface $userUuid
      *
      * @return array
      * @throws Exception
