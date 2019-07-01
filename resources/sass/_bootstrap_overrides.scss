@@ -1,0 +1,81 @@
+.btn-primary {
+  color: #fff;
+  background-color: rgba(0, 0, 0, .2);
+  border-color: rgba(255, 255, 255, .2);
+  text-transform: uppercase;
+  font-weight:700;
+  font-size: .875rem;
+  &:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, .05);
+    border-color: rgba(255, 255, 255, .2);
+  }
+
+  &:not(:disabled):not(.disabled).active,
+  &:not(:disabled):not(.disabled):active,
+  .show > &.dropdown-toggle {
+    color: #fff;
+    background-color: rgba(255, 255, 255, .05);
+    border-color: rgba(255, 255, 255, .2);
+  }
+
+  &.focus,
+  &:focus {
+    box-shadow: none;
+  }
+
+  &:not(:disabled):not(.disabled).active:focus,
+  &:not(:disabled):not(.disabled):active:focus,
+  .show > &.dropdown-toggle:focus {
+    box-shadow: none;
+  }
+}
+
+.form-control {
+  background: rgba(0, 0, 0, .2);
+  border-color: rgba(255, 255, 255, .2);
+  color:#ffffff;
+  transition: border-color .5s ease, box-shadow .5s ease, background-color .5s ease;
+
+  &:focus {
+    box-shadow: 0 0 15px rgba(255, 255, 255, .05);
+    background: rgba(255, 255, 255, .05);
+    border-color: rgba(255, 255, 255, .2);
+    color:#ffffff;
+  }
+}
+
+.custom-select {
+  border: 1px solid rgba(255, 255, 255, .2);
+  color:#ffffff;
+  background-color: rgba(0, 0, 0, .2);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23ffffff' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e");
+  background-position: 95% 50%;
+  background-size: .75rem .75rem;
+  &:focus {
+    border-color: rgba(255, 255, 255, .2);
+    background-color: rgba(255, 255, 255, .05);
+    outline: 0;
+    box-shadow: 0 0 15px rgba(255, 255, 255, .05);
+  }
+  option {
+    background:#000000;
+  }
+}
+
+.col-form-label {
+  font-size: .875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.input-group-text {
+  background:rgba(0, 0, 0, .2);
+  border-color: rgba(255, 255, 255, .2);
+  color:#ffffff;
+  transition:background-color .3s ease;
+  &:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, .05);
+  }
+}
