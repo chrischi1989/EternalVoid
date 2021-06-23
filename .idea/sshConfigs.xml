@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="SshConfigs">
-    <configs>
-      <sshConfig authType="PASSWORD" host="94.16.114.114" id="ff0420e2-319f-480c-b0b8-963db395a18f" port="43685" nameFormat="DESCRIPTIVE" username="scarabaeus" />
-      <sshConfig authType="PASSWORD" connectionConfig="{&quot;serverAliveInterval&quot;:300}" host="94.16.114.114" id="8b9b49a4-75cb-48a5-b750-9ff267716f50" port="43685" nameFormat="DESCRIPTIVE" username="web3" />
-    </configs>
-  </component>
-</project>
