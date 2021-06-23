@@ -1,13 +1,13 @@
 <?php
 
-namespace EternalVoid\Modules\User\Tasks;
+namespace EternalVoid\User\Tasks;
 
-use EternalVoid\Modules\User\Models\User;
+use EternalVoid\User\Models\User;
 
 /**
  * Class CreateUserTask
  *
- * @package EternalVoid\Modules\User\Tasks
+ * @package EternalVoid\User\Tasks
  */
 class CreateUserTask
 {

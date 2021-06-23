@@ -1,12 +1,12 @@
 <?php
 
-namespace EternalVoid\Modules\Resources\UI\CLI\Controllers;
+namespace EternalVoid\Resources\UI\CLI\Controllers;
 
-use EternalVoid\Modules\Resources\Actions\TickAction;
+use EternalVoid\Resources\Actions\TickAction;
 
 /**
  * Class TickController
- * @package EternalVoid\Modules\Resources\UI\CLI\Controllers
+ * @package EternalVoid\Resources\UI\CLI\Controllers
  */
 class TickController
 {

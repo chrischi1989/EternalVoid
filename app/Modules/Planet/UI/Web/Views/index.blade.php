@@ -1,195 +1,80 @@
-@extends('Page.UI.Web.Views.layouts.master')
+@extends('page::layouts.game')
 @section('pagetitle')Planet @stop
-@section('pagecss')
-    .navigation {
-        display:flex;
-        flex-wrap:wrap;
-    }
-
-    .navigation li {
-        flex:1;
-        text-align:center;
-        margin-bottom:.8rem;
-    }
-
-    .navigation .btn {
-        padding:.75rem;
-    }
-@stop
 @section('content')
-    <div class="container-fluid bg-inherit">
-        <div class="row bg-inherit">
-            <header class="col-12 bg-inherit">
-                <div class="milky">
-                    Aluminium: {{ Helper::nf($resources->aluminium) }}
-                    <p class="h1 text-center text-uppercase">Eternal Void</p>
-                </div>
-            </header>
-        </div>
-        <div class="row bg-inherit">
-            <div class="col">
-                <ul class="fa-ul m-0 p-0 navigation">
-                    {{-- Planet --}}
-                    <li>
-                        <a href="#" class="btn btn-primary">
-                            <span class="fas fa-fw fa-2x fa-globe"></span>
-                        </a>
-                    </li>
-                    {{-- Account --}}
-                    <li>
-                        <a href="#" class="btn btn-primary">
-                            <span class="fas fa-fw fa-2x fa-user"></span>
-                        </a>
-                    </li>
-                    {{-- Allianz --}}
-                    <li>
-                        <a href="#" class="btn btn-primary">
-                            <span class="fas fa-fw fa-2x fa-users"></span>
-                        </a>
-                    </li>
-                    {{-- Bauen --}}
-                    <li>
-                        <a href="#" class="btn btn-primary">
-                            <span class="fas fa-fw fa-2x fa-wrench"></span>
-                        </a>
-                    </li>
-                    {{-- Forschen --}}
-                    <li>
-                        <a href="#" class="btn btn-primary">
-                            <span class="fas fa-fw fa-2x fa-flask"></span>
-                        </a>
-                    </li>
-                    {{-- Schiffswerft --}}
-                    <li>
-                        <a href="#" class="btn btn-primary">
-                            <span class="fas fa-fw fa-2x fa-rocket"></span>
-                        </a>
-                    </li>
-                    {{-- Raumhafen --}}
-                    <li>
-                        <a href="#" class="btn btn-primary">
-                            <span class="fas fa-fw fa-2x fa-anchor"></span>
-                        </a>
-                    </li>
-                    {{-- Verteidigung --}}
-                    <li>
-                        <a href="#" class="btn btn-primary">
-                            <span class="fas fa-fw fa-2x fa-shield-alt"></span>
-                        </a>
-                    </li>
-                    {{-- Handelsboerse --}}
-                    <li>
-                        <a href="#" class="btn btn-primary">
-                            <span class="fas fa-fw fa-2x fa-chart-bar"></span>
-                        </a>
-                    </li>
-                    {{-- Schiffsboerse --}}
-                    <li>
-                        <a href="#" class="btn btn-primary">
-                            <span class="fas fa-fw fa-2x fa-dollar-sign"></span>
-                        </a>
-                    </li>
-                    {{-- Flottenkommando --}}
-                    <li>
-                        <a href="#" class="btn btn-primary">
-                            <span class="fas fa-fw fa-2x fa-sitemap"></span>
-                        </a>
-                    </li>
-                    {{-- Flotten --}}
-                    <li>
-                        <a href="#" class="btn btn-primary">
-                            <span class="fas fa-fw fa-2x fa-plane"></span>
-                        </a>
-                    </li>
-                    {{-- Galaxie --}}
-                    <li>
-                        <a href="#" class="btn btn-primary">
-                            <span class="fas fa-fw fa-2x fa-globe-africa"></span>
-                        </a>
-                    </li>
-                    {{-- Ressourcen --}}
-                     <li>
-                        <a href="#" class="btn btn-primary">
-                            <span class="fas fa-fw fa-2x fa-industry"></span>
-                        </a>
-                    </li>
-                    {{-- Technologie --}}
-                    <li>
-                        <a href="#" class="btn btn-primary">
-                            <span class="fas fa-fw fa-2x fa-code-branch"></span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-11 bg-inherit">
-                <div class="milky">
-                    &nbsp;
+<div class="wrapper bg-inherit">
+    @include('partials.game.topbar')
+    <div class="container-fluid pt-5">
+        <div class="row justify-content-around">
+            <div class="col-12 col-lg-3">
+                <div class="p-3 milky bordered rounded h-100">
+                    <img src="/img/game/planets/{{ config('game.planets.' . $planet->image) }}" class="planetimage" alt="">
                 </div>
             </div>
-            <div class="col">
-                <ul class="fa-ul m-0 p-0 navigation">
-                    {{-- Missionen --}}
-                    <li>
-                        <a href="#" class="btn btn-primary">
-                            <span class="fas fa-fw fa-2x fa-flag"></span>
-                        </a>
-                    </li>
-                    {{-- Nachrichten --}}
-                    <li>
-                        <a href="#" class="btn btn-primary">
-                            <span class="fas fa-fw fa-2x fa-envelope"></span>
-                        </a>
-                    </li>
-                    {{-- Berichte --}}
-                    <li>
-                        <a href="#" class="btn btn-primary">
-                            <span class="fas fa-fw fa-2x fa-file-alt"></span>
-                        </a>
-                    </li>
-                    {{-- Notizen --}}
-                    <li>
-                        <a href="#" class="btn btn-primary">
-                            <span class="fas fa-fw fa-2x fa-sticky-note"></span>
-                        </a>
-                    </li>
-                    {{-- Toplist --}}
-                    <li>
-                        <a href="#" class="btn btn-primary">
-                            <span class="fas fa-fw fa-2x fa-list-ol"></span>
-                        </a>
-                    </li>
-                    {{-- Suchen --}}
-                    <li>
-                        <a href="#" class="btn btn-primary">
-                            <span class="fas fa-fw fa-2x fa-search"></span>
-                        </a>
-                    </li>
-                    {{-- Einstellungen --}}
-                    <li>
-                        <a href="#" class="btn btn-primary">
-                            <span class="fas fa-fw fa-2x fa-cogs"></span>
-                        </a>
-                    </li>
-                    {{-- Simulator --}}
-                    <li>
-                        <a href="#" class="btn btn-primary">
-                            <span class="fas fa-fw fa-2x fa-gamepad"></span>
-                        </a>
-                    </li>
-                    {{-- Forum --}}
-                    <li>
-                        <a href="#" class="btn btn-primary">
-                            <span class="far fa-fw fa-2x fa-list-alt"></span>
-                        </a>
-                    </li>
-                    {{-- Abmelden --}}
-                    <li>
-                        <a href="#" class="btn btn-primary">
-                            <span class="fas fa-fw fa-2x fa-sign-out-alt"></span>
-                        </a>
-                    </li>
-                </ul>
+            <div class="col-12 col-lg-3">
+                <div class="p-3 milky bordered rounded h-100">
+                    <h4>Baureihe</h4>
+                    <p>Es wird derzeit nicht gebaut.</p>
+                </div>
+            </div>
+            <div class="col-12 col-lg-3 p-3 milky bordered rounded h-100">
+                <h4 class="mb-3">Gebäude</h4>
+                <div class="row no-gutters">
+                    @foreach(config('game.buildings') as $building => $values)
+                        @if($values['available'])
+                        <div class="col-6 col-lg-2 mx-1 my-1 text-center building">
+                            @if($values['buildable'])
+                            <a href="{{ route('building-up', [$building]) }}" data-toggle="tooltip" data-placement="left" data-html="true" title="@include('building::partials.tooltip', ['building' => $values])">
+                                <span class="fas fa-fw fa-xs fa-level-up-alt"></span>
+                            </a>
+                            @else
+                            <span><span class="fas fa-fw fa-xs fa-arrow-up"></span></span>
+                            @endif
+                            <img src="{{ $values['image'] }}" class="bordered rounded">
+                        </div>
+                        @endif
+                    @endforeach
+                </div>
+            </div>
+            <div class="col-12 col-lg-2">
+                <div class="p-3 milky bordered rounded h-100">
+                    <h4 class="mb-3">Outliner</h4>
+                    <h5>Planeten</h5>
+                    <nav class="my-3">
+                    @foreach(auth()->user()->planets as $planet)
+                        <div>
+                            <img src="/img/game/planets/small/{{ config('game.planets.' . $planet->image) }}" class="planetimage" width="24" height="24">
+                            <a href="#">
+                                {{ $planet->planetname }} [{{ $planet->galaxy . ':' . $planet->system . ':' . $planet->position }}]
+                            </a>
+                        </div>
+                    @endforeach
+                    </nav>
+                    <h5>Flotten</h5>
+                </div>
+                <div class="btn-group w-100 mb-3">
+                    <a href="#" class="btn btn-primary"><span class="fas fa-fw fa-flask"></span> Forschen</a>
+                    <a href="#" class="btn btn-primary"><span class="fas fa-fw fa-handshake"></span> Allianz</a>
+                    <a href="#" class="btn btn-primary"><span class="fas fa-fw fa-sun"></span> Galaxie</a>
+                </div>
             </div>
         </div>
     </div>
+</div>
+<footer class="wow fadeIn bg-inherit">
+    <div class="d-flex justify-content-between p-2 milky bordered-top">
+        <nav>
+            <a href="#" class="nav-item"><span class="fas fa-fw fa-list-ol"></span> <span class="d-none d-lg-inline">Toplist</span></a>
+            <a href="#" class="nav-item"><span class="fas fa-fw fa-search"></span> <span class="d-none d-lg-inline">Suche</span></a>
+            <a href="#" class="nav-item"><span class="fas fa-fw fa-gamepad"></span> <span class="d-none d-lg-inline">Simulator</span></a>
+        </nav>
+        <nav>
+            <a href="#" class="nav-item"><span class="fas fa-fw fa-user"></span> <span class="d-none d-lg-inline">Account</span></a>
+            <a href="#" class="nav-item"><span class="far fa-fw fa-list-alt"></span> <span class="d-none d-lg-inline">Forum</span></a>
+            <a href="#" class="nav-item"><span class="fas fa-fw fa-sign-out-alt"></span> <span class="d-none d-lg-inline">Abmelden</span></a>
+        </nav>
+    </div>
+</footer>
+@stop
+@section('pagejs')
+
 @stop

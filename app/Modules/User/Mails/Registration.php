@@ -1,6 +1,6 @@
 <?php
 
-namespace EternalVoid\Modules\User\Mails;
+namespace EternalVoid\User\Mails;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
@@ -10,7 +10,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 /**
  * Class Registration
  *
- * @package EternalVoid\Modules\User\Mail
+ * @package EternalVoid\User\Mail
  */
 class Registration extends Mailable
 {
@@ -49,7 +49,7 @@ class Registration extends Mailable
      */
     public function build()
     {
-        return $this->from('mail@eternalvoid.de')->view('User.Mails.Templates.registration')->with([
+        return $this->from('mail@eternalvoid.de')->view('user::Mails.registration')->with([
             'user'     => $this->user,
             'profile'  => $this->profile,
             'password' => $this->password,

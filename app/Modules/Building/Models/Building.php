@@ -1,10 +1,10 @@
 <?php
 
-namespace EternalVoid\Modules\Building\Models;
+namespace EternalVoid\Building\Models;
 
 use Carbon\Carbon;
-use EternalVoid\Traits\Uuids;
-use EternalVoid\Traits\Who;
+use App\Traits\Uuid;
+use App\Traits\Who;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -33,15 +33,20 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $flottenkommando
  * @property int $planetarer_schild
  * @property int $kommandozentrale
+ * @property int $forschungszentrum
  * @property int $handelsboerse
  * @property int $schiffsboerse
  *
- * @package EternalVoid\Modules\Building\Models
+ * @package EternalVoid\Building\Models
  */
 class Building extends Model
 {
     use Who;
-    use Uuids;
+    use Uuid;
+    /**
+     * @var string
+     */
+    public $keyType = 'string';
     /**
      * @var bool
      */

@@ -1,8 +1,8 @@
 <?php
 
-namespace EternalVoid\Modules\Race\Models;
+namespace EternalVoid\Race\Models;
 
-use EternalVoid\Traits\Uuids;
+use App\Traits\Uuid;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -14,15 +14,11 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $racetext
  * @property string $racebonus
  *
- * @package EternalVoid\Modules\Race\Models
+ * @package EternalVoid\Race\Models
  */
 class Race extends Model
 {
-    use Uuids;
-    /**
-     * @var bool
-     */
-    public $incrementing = false;
+    use Uuid;
     /**
      * @var string
      */

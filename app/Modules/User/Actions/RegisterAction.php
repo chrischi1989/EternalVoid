@@ -1,14 +1,14 @@
 <?php
 
-namespace EternalVoid\Modules\User\Actions;
+namespace EternalVoid\User\Actions;
 
-use EternalVoid\Modules\User\UI\Web\Requests\RegisterRequest;
+use EternalVoid\User\UI\Web\Requests\RegisterRequest;
 use Exception;
 
 /**
  * Class RegisterAction
  *
- * @package EternalVoid\Modules\User\Actions
+ * @package EternalVoid\User\Actions
  */
 class RegisterAction
 {

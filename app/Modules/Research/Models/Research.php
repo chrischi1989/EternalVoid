@@ -1,10 +1,10 @@
 <?php
 
-namespace EternalVoid\Modules\Research\Models;
+namespace EternalVoid\Research\Models;
 
 use Carbon\Carbon;
-use EternalVoid\Traits\Uuids;
-use EternalVoid\Traits\Who;
+use App\Traits\Uuid;
+use App\Traits\Who;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -39,20 +39,17 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $speziallegierungen
  * @property int $materiestabilisierung
  *
- * @package EternalVoid\Modules\Research\Models
+ * @package EternalVoid\Research\Models
  */
 class Research extends Model
 {
-    use Uuids;
+    use Uuid;
     use Who;
-    /**
-     * @var bool
-     */
-    public $incrementing = false;
     /**
      * @var string
      */
     protected $table = 'users_research';
+
     /**
      * @var string
      */

@@ -1,10 +1,10 @@
 <?php
 
-namespace EternalVoid\Modules\User\Models;
+namespace EternalVoid\User\Models;
 
 use Carbon\Carbon;
-use EternalVoid\Traits\Uuids;
-use EternalVoid\Traits\Who;
+use App\Traits\Uuid;
+use App\Traits\Who;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -23,22 +23,16 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $email_encrypted
  * @property boolean $planetimages
  *
- * @package EternalVoid\Modules\User\Models
+ * @package EternalVoid\User\Models
  */
 class Profile extends Model
 {
-    use Uuids;
+    use Uuid;
     use Who;
-    /**
-     * @var bool
-     */
-    public $incrementing = false;
+
     /**
      * @var string
      */
     protected $table = 'users_profiles';
-    /**
-     * @var string
-     */
     protected $primaryKey = 'uuid';
 }

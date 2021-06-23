@@ -1,14 +1,14 @@
 <?php
 
-namespace EternalVoid\Modules\Unit\Tasks;
+namespace EternalVoid\Unit\Tasks;
 
-use EternalVoid\Modules\Planet\Models\Planet;
-use EternalVoid\Modules\Unit\Models\Unit;
+use EternalVoid\Planet\Models\Planet;
+use EternalVoid\Unit\Models\Unit;
 
 /**
  * Class SetStartUnitsTask
  *
- * @package EternalVoid\Modules\Unit\Tasks
+ * @package EternalVoid\Unit\Tasks
  */
 class SetStartUnitsTask
 {

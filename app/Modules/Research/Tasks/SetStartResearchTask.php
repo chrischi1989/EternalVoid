@@ -1,13 +1,14 @@
 <?php
 
-namespace EternalVoid\Modules\Research\Tasks;
+namespace EternalVoid\Research\Tasks;
 
-use EternalVoid\Modules\Research\Models\Research;
+use EternalVoid\Research\Models\Research;
+use Ramsey\Uuid\Uuid;
 
 /**
  * Class SetStartResearchTask
  *
- * @package EternalVoid\Modules\Planet\Tasks
+ * @package EternalVoid\Planet\Tasks
  */
 class SetStartResearchTask
 {

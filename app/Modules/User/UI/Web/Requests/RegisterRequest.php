@@ -1,12 +1,12 @@
 <?php
 
-namespace EternalVoid\Modules\User\UI\Web\Requests;
+namespace EternalVoid\User\UI\Web\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
  * Class RegisterRequest
- * @package EternalVoid\Modules\User\UI\Web\Requests
+ * @package EternalVoid\User\UI\Web\Requests
  */
 class RegisterRequest extends FormRequest
 {
@@ -16,6 +16,7 @@ class RegisterRequest extends FormRequest
     public function rules()
     {
         return [
+            'name'     => 'present|max:0',
             'username' => 'required|unique:users,username',
             'email'    => 'required|email|unique:users_profiles,email_hashed',
             'planet'   => 'required',

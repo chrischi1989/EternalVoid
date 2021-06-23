@@ -1,10 +1,10 @@
 <?php
 
-namespace EternalVoid\Modules\Unit\Models;
+namespace EternalVoid\Unit\Models;
 
 use Carbon\Carbon;
-use EternalVoid\Traits\Uuids;
-use EternalVoid\Traits\Who;
+use App\Traits\Uuid;
+use App\Traits\Who;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -35,12 +35,17 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $mammoth
  * @property int $invader
  *
- * @package EternalVoid\Modules\Unit\Models
+ * @package EternalVoid\Unit\Models
  */
 class Unit extends Model
 {
-    use Uuids;
+    use Uuid;
     use Who;
+
+    /**
+     * @var string
+     */
+    public $keyType = 'string';
     /**
      * @var bool
      */

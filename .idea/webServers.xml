@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="4da5fad9-57ee-4e91-96df-02889dbc27e6" name="eternalvoid.de" url="https://dev.eternalvoid.de">
+        <fileTransfer rootFolder="/var/www/vhosts/eternalvoid.de" accessType="SFTP" host="94.16.114.114" port="43685" sshConfigId="8b9b49a4-75cb-48a5-b750-9ff267716f50" sshConfig="web3@94.16.114.114:43685 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

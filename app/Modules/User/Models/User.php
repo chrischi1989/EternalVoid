@@ -1,15 +1,17 @@
 <?php
 
-namespace EternalVoid\Modules\User\Models;
+namespace EternalVoid\User\Models;
 
+use App\Traits\Uuid;
 use Carbon\Carbon;
-use EternalVoid\Traits\Who;
-use EternalVoid\Modules\Planet\Models\Planet;
-use EternalVoid\Modules\Research\Models\Research;
+use App\Traits\Who;
+use EternalVoid\Planet\Models\Planet;
+use EternalVoid\Research\Models\Research;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Support\Collection;
 
 /**
@@ -35,23 +37,19 @@ use Illuminate\Support\Collection;
  * @property Profile $profile
  * @property Planet $currentPlanet
  *
- * @package EternalVoid\Modules\User\Models
+ * @package EternalVoid\User\Models
  */
 class User extends Authenticatable
 {
     use Who;
+    use Uuid;
     use Notifiable;
-    /**
-     * @var bool
-     */
-    public $incrementing = false;
+
     /**
      * @var string
      */
     protected $table = 'users';
-    /**
-     * @var string
-     */
+
     protected $primaryKey = 'uuid';
     /**
      * The attributes that should be hidden for arrays.

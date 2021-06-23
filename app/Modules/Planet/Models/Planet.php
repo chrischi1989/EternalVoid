@@ -1,18 +1,21 @@
 <?php
 
-namespace EternalVoid\Modules\Planet\Models;
+namespace EternalVoid\Planet\Models;
 
 use Carbon\Carbon;
-use EternalVoid\Modules\Building\Models\Building;
-use EternalVoid\Modules\Defense\Models\Defense;
-use EternalVoid\Modules\Production\Models\Production;
-use EternalVoid\Modules\Resources\Models\Resource;
-use EternalVoid\Modules\Unit\Models\Unit;
-use EternalVoid\Modules\User\Models\User;
-use EternalVoid\Traits\Uuids;
-use EternalVoid\Traits\Who;
+use EternalVoid\Building\Models\Building;
+use EternalVoid\Defense\Models\Defense;
+use EternalVoid\Events\Models\Event;
+use EternalVoid\Production\Models\Production;
+use EternalVoid\Resources\Models\Resource;
+use EternalVoid\Unit\Models\Unit;
+use EternalVoid\User\Models\User;
+use App\Traits\Uuid;
+use App\Traits\Who;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
@@ -44,17 +47,14 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property Defense $defenses
  * @property Unit $units
  * @property User $user
+ * @property Collection $events
  *
- * @package EternalVoid\Modules\Planet\Models
+ * @package EternalVoid\Planet\Models
  */
 class Planet extends Model
 {
-    use Uuids;
+    use Uuid;
     use Who;
-    /**
-     * @var bool
-     */
-    public $incrementing = false;
     /**
      * @var string
      */
@@ -110,5 +110,13 @@ class Planet extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'settled_uuid', 'uuid');
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function events(): HasMany
+    {
+        return $this->hasMany(Event::class, 'planet_uuid', 'uuid');
     }
 }

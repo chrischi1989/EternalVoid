@@ -1,8 +1,8 @@
 <?php
 
-namespace EternalVoid\Modules\User\Tasks;
+namespace EternalVoid\User\Tasks;
 
-use EternalVoid\Modules\User\Models\User;
+use EternalVoid\User\Models\User;
 
 class FindUserTask
 {

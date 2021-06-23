@@ -1,14 +1,14 @@
 <?php
 
-namespace EternalVoid\Modules\Race\Tasks;
+namespace EternalVoid\Race\Tasks;
 
-use EternalVoid\Modules\Race\Models\Race;
+use EternalVoid\Race\Models\Race;
 use Illuminate\Support\Collection;
 
 /**
  * Class GetAllRaces
  *
- * @package EternalVoid\Modules\Race\Tasks
+ * @package EternalVoid\Race\Tasks
  */
 class GetAllRaces
 {

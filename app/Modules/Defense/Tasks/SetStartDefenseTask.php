@@ -1,14 +1,14 @@
 <?php
 
-namespace EternalVoid\Modules\Defense\Tasks;
+namespace EternalVoid\Defense\Tasks;
 
-use EternalVoid\Modules\Defense\Models\Defense;
-use EternalVoid\Modules\Planet\Models\Planet;
+use EternalVoid\Defense\Models\Defense;
+use EternalVoid\Planet\Models\Planet;
 
 /**
  * Class SetStartDefenseTask
  *
- * @package EternalVoid\Modules\Defense\Tasks
+ * @package EternalVoid\Defense\Tasks
  */
 class SetStartDefenseTask
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace EternalVoid\Modules\Production\Models;
+namespace EternalVoid\Production\Models;
 
 use Carbon\Carbon;
-use EternalVoid\Traits\Uuids;
-use EternalVoid\Traits\Who;
+use App\Traits\Uuid;
+use App\Traits\Who;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -24,12 +24,16 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $wasserstoff
  * @property int $antimaterie
  *
- * @package EternalVoid\Modules\Production\Models
+ * @package EternalVoid\Production\Models
  */
 class Production extends Model
 {
-    use Uuids;
+    use Uuid;
     use Who;
+    /**
+     * @var string
+     */
+    public $keyType = 'string';
     /**
      * @var bool
      */

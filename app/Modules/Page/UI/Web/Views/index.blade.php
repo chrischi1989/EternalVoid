@@ -1,8 +1,10 @@
-@extends('Page.UI.Web.Views.layouts.master')
+@extends('page::layouts.master')
 @section('pagecss')
+<style>
     h1 {
-    font-size:4rem;
+        font-size:4rem;
     }
+</style>
 @stop
 @section('content')
     <div class="container-fluid bg-inherit">
@@ -11,7 +13,7 @@
         </header>
         <div class="row justify-content-center h-100 bg-inherit">
             <div class="col-12 col-lg-6 col-xl-4 bg-inherit wow fadeIn slow">
-                <form action="{{ route('user-login') }}" enctype="multipart/form-data" method="post" class="milky p-3">
+                <form action="{{ route('user-login') }}" enctype="multipart/form-data" method="post" class="milky bordered round p-3">
                     {!! csrf_field() !!}
                     <div class="form-group row">
                         <div class="col-12 col-sm-6 mb-3 mb-sm-0">
@@ -41,10 +43,10 @@
                 </form>
             </div>
             <div class="col-12 col-lg-6 col-xl-4 bg-inherit wow fadeIn slow mt-5 mt-lg-0">
-                <form action="{{ route('user-register') }}" enctype="multipart/form-data" method="post"
-                      class="milky p-3">
+                <form action="{{ route('user-register') }}" enctype="multipart/form-data" method="post" class="milky bordered round p-3">
                     {!! csrf_field() !!}
                     <div class="form-row mb-3">
+                        <input class="d-none" name="name" value="">
                         <div class="col-12 col-sm-6 mb-3 mb-sm-0">
                             <div class="row">
                                 <label for="username" class="col-form-label required col-12">Benutzername</label>
@@ -67,7 +69,7 @@
                                 <div class="col-12 input-group">
                                     <select name="race" id="race" class="custom-select">
                                         @foreach($races as $race)
-                                            <option value="{{ $race->uuid }}">{{ $race->racename }}</option>
+                                        <option value="{{ $race->uuid }}">{{ $race->racename }}</option>
                                         @endforeach
                                     </select>
                                     <div class="input-group-append">

@@ -1,2 +1,7 @@
 <?php
-Route::group(['namespace' => 'UI\Web\Controllers'], base_path('app/Modules/Race/UI/Web/routes.php'));
+Route::group([
+    'namespace' => 'EternalVoid\Race\UI\Web\Handlers',
+    'middleware' => [
+        'web'
+    ]
+], __DIR__ . '/UI/Web/routes.php');

@@ -1,2 +1,4 @@
 <?php
-Route::group(['namespace' => 'UI\Web\Controllers'], base_path('app/Modules/Quest/UI/Web/routes.php'));
+Route::group([
+    'namespace' => 'EternalVoid\Quest\UI\Web\Handlers'
+], __DIR__ . '/UI/Web/routes.php');

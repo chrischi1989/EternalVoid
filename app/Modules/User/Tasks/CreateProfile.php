@@ -1,8 +1,8 @@
 <?php
 
-namespace EternalVoid\Modules\User\Tasks;
+namespace EternalVoid\User\Tasks;
 
-use EternalVoid\Modules\User\Models\Profile;
+use EternalVoid\User\Models\Profile;
 
 class CreateProfile
 {
@@ -15,7 +15,6 @@ class CreateProfile
 
     public function run($profile)
     {
-        $this->profile->uuid            = $profile['uuid'];
         $this->profile->created_uuid    = $profile['created_uuid'];
         $this->profile->updated_uuid    = $profile['updated_uuid'];
         $this->profile->race_uuid       = $profile['race_uuid'];

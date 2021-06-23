@@ -1,10 +1,10 @@
 <?php
 
-namespace EternalVoid\Modules\Resources\Models;
+namespace EternalVoid\Resources\Models;
 
 use Carbon\Carbon;
-use EternalVoid\Traits\Uuids;
-use EternalVoid\Traits\Who;
+use App\Traits\Uuid;
+use App\Traits\Who;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -32,12 +32,16 @@ use Illuminate\Database\Eloquent\Model;
  * @property double $tanks_int
  * @property double $bunker_int
  *
- * @package EternalVoid\Modules\Resource\Models
+ * @package EternalVoid\Resource\Models
  */
 class Resource extends Model
 {
-    use Uuids;
+    use Uuid;
     use Who;
+    /**
+     * @var string
+     */
+    public $keyType = 'string';
     /**
      * @var bool
      */

@@ -1,6 +1,6 @@
 <?php
 
-namespace EternalVoid\Modules\User\Tasks;
+namespace EternalVoid\User\Tasks;
 
 class LoginUserTask
 {
@@ -11,6 +11,6 @@ class LoginUserTask
      */
     public function run($credentials): bool
     {
-        return auth()->attempt($credentials);
+        return auth()->attempt($credentials, true);
     }
 }

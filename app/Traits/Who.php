@@ -1,7 +1,7 @@
 <?php
-namespace EternalVoid\Traits;
+namespace App\Traits;
 
-use EternalVoid\Modules\User\Models\User;
+use EternalVoid\User\Models\User;
 
 trait Who
 {

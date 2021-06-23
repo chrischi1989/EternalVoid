@@ -1,12 +1,12 @@
 <?php
 
-namespace EternalVoid\Modules\User\UI\Web\Requests;
+namespace EternalVoid\User\UI\Web\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
  * Class LoginRequest
- * @package EternalVoid\Modules\User\UI\Web\Requests
+ * @package EternalVoid\User\UI\Web\Requests
  */
 class LoginRequest extends FormRequest
 {

@@ -1,13 +1,13 @@
 <?php
 
 
-namespace EternalVoid\Modules\User\Actions;
+namespace EternalVoid\User\Actions;
 
 
-use EternalVoid\Modules\User\Tasks\CreateProfileTask;
-use EternalVoid\Modules\User\Tasks\CreateUserTask;
-use EternalVoid\Modules\User\Tasks\SendActivationEmailTask;
-use EternalVoid\Modules\User\UI\Web\Requests\RegisterRequest;
+use EternalVoid\User\Tasks\CreateProfileTask;
+use EternalVoid\User\Tasks\CreateUserTask;
+use EternalVoid\User\Tasks\SendActivationEmailTask;
+use EternalVoid\User\UI\Web\Requests\RegisterRequest;
 use Exception;
 use Hash;
 use Illuminate\Support\Str;
@@ -72,8 +72,8 @@ class CreateUserSubAction
 
     /**
      * @param RegisterRequest $request
-     * @param \Ramsey\Uuid\UuidInterface $userUuid
-     * @param string $userPassword
+     * @param $userUuid
+     * @param $userPassword
      *
      * @return array
      */
@@ -95,7 +95,7 @@ class CreateUserSubAction
 
     /**
      * @param RegisterRequest $request
-     * @param \Ramsey\Uuid\UuidInterface $userUuid
+     * @param $userUuid
      *
      * @return array
      * @throws Exception

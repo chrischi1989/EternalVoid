@@ -1,8 +1,8 @@
 <?php
 
-namespace EternalVoid\Console\Commands;
+namespace App\Console\Commands;
 
-use EternalVoid\Modules\Resources\UI\CLI\Controllers\TickController;
+use EternalVoid\Resources\UI\CLI\Handlers\TickHandler;
 use Illuminate\Console\Command;
 
 class Resources extends Command
@@ -32,17 +32,17 @@ class Resources extends Command
     }
 
     /**
-     * Execute the console command.
-     *
-     * @return boolean
+     * @param TickHandler $tickHandler
+     * @return int
      */
-    public function handle(TickController $tickController)
+    public function handle(TickHandler $tickHandler): int
     {
         while (true) {
-            $tickController();
+            $tickHandler();
             sleep(1);
+            $this->info('Tick');
         }
 
-        return true;
+        return 0;
     }
 }

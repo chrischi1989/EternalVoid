@@ -1,24 +1,28 @@
 <?php
 
-namespace EternalVoid\Modules\User\Actions;
+namespace EternalVoid\User\Actions;
 
-use EternalVoid\Modules\Building\Tasks\SetStartBuildingsTask;
-use EternalVoid\Modules\Defense\Tasks\SetStartDefenseTask;
-use EternalVoid\Modules\Planet\Tasks\FindStartPlanetTask;
-use EternalVoid\Modules\Planet\Tasks\SetStartPlanetTask;
-use EternalVoid\Modules\Production\Tasks\SetStartProductionTask;
-use EternalVoid\Modules\Research\Tasks\SetStartResearchTask;
-use EternalVoid\Modules\Resources\Tasks\SetStartResourcesTask;
-use EternalVoid\Modules\Unit\Tasks\SetStartUnitsTask;
-use EternalVoid\Modules\User\UI\Web\Requests\RegisterRequest;
+use EternalVoid\Building\Tasks\SetStartBuildingsTask;
+use EternalVoid\Defense\Tasks\SetStartDefenseTask;
+use EternalVoid\Planet\Tasks\FindStartPlanetTask;
+use EternalVoid\Planet\Tasks\SetStartPlanetTask;
+use EternalVoid\Production\Tasks\CalculateProductionTask;
+use EternalVoid\Production\Tasks\SetStartProductionTask;
+use EternalVoid\Research\Tasks\SetStartResearchTask;
+use EternalVoid\Resources\Tasks\SetStartResourcesTask;
+use EternalVoid\Unit\Tasks\SetStartUnitsTask;
+use EternalVoid\User\UI\Web\Requests\RegisterRequest;
 
 class CreateGameDataSubAction
 {
     /**
+     * @var CalculateProductionTask
+     */
+    private $calculateProductionTask;
+    /**
      * @var FindStartPlanetTask
      */
     private $findStartPlanetTask;
-
     /**
      * @var SetStartPlanetTask
      */
@@ -50,6 +54,7 @@ class CreateGameDataSubAction
 
     /**
      * CreateGameDataSubAction constructor.
+     * @param CalculateProductionTask $calculateProductionTask
      * @param FindStartPlanetTask $findStartPlanetTask
      * @param SetStartPlanetTask $setStartPlanetTask
      * @param SetStartResearchTask $setStartResearchTask
@@ -60,6 +65,7 @@ class CreateGameDataSubAction
      * @param SetStartUnitsTask $setStartUnitsTask
      */
     public function __construct(
+        CalculateProductionTask $calculateProductionTask,
         FindStartPlanetTask $findStartPlanetTask,
         SetStartPlanetTask $setStartPlanetTask,
         SetStartResearchTask $setStartResearchTask,
@@ -69,6 +75,7 @@ class CreateGameDataSubAction
         SetStartResourcesTask $setStartResourcesTask,
         SetStartUnitsTask $setStartUnitsTask
     ) {
+        $this->calculateProductionTask = $calculateProductionTask;
         $this->findStartPlanetTask    = $findStartPlanetTask;
         $this->setStartPlanetTask     = $setStartPlanetTask;
         $this->setStartResearchTask   = $setStartResearchTask;
@@ -89,13 +96,15 @@ class CreateGameDataSubAction
         $planetProperties = $this->newPlanet($request, $createdUserData['user']['uuid']);
         $planet           = $this->findStartPlanetTask->run();
 
-        return $this->setStartPlanetTask->run($planet, $planetProperties) &&
-            $this->setStartResearchTask->run($createdUserData['user']) &&
-            $this->setStartBuildingsTask->run($planet) &&
-            $this->setStartProductionTask->run($planet) &&
-            $this->setStartResourcesTask->run($planet) &&
-            $this->setStartDefenseTask->run($planet) &&
-            $this->setStartUnitsTask->run($planet);
+        $this->setStartPlanetTask->run($planet, $planetProperties);
+        $this->setStartResearchTask->run($createdUserData['user']);
+        $this->setStartBuildingsTask->run($planet);
+        $this->setStartResourcesTask->run($planet);
+        $this->setStartDefenseTask->run($planet);
+        $this->setStartUnitsTask->run($planet);
+
+        $planetProduction = $this->calculateProductionTask->run($planet);
+        return $this->setStartProductionTask->run($planet, $planetProduction);
     }
 
     /**

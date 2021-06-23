@@ -1,2 +1,9 @@
 <?php
-Route::group(['namespace' => 'UI\Web\Controllers'], base_path('app/Modules/Planet/UI/Web/routes.php'));
+Route::group([
+    'namespace'  => 'EternalVoid\Planet\UI\Web\Handlers',
+    'middleware' => [
+        'web',
+        'auth',
+        'game'
+    ]
+], __DIR__ . '/UI/Web/routes.php');

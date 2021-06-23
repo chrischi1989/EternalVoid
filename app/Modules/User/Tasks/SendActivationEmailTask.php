@@ -1,14 +1,14 @@
 <?php
 
-namespace EternalVoid\Modules\User\Tasks;
+namespace EternalVoid\User\Tasks;
 
-use EternalVoid\Modules\User\Mails\Registration;
+use EternalVoid\User\Mails\Registration;
 use Mail;
 
 /**
  * Class SendActivationEmailTask
  *
- * @package EternalVoid\Modules\User\Tasks
+ * @package EternalVoid\User\Tasks
  */
 class SendActivationEmailTask
 {

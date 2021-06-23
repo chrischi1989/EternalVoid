@@ -1,3 +1,3 @@
 <?php
-Route::post('register', RegisterController::class)->name('user-register');
-Route::post('login', LoginController::class)->name('user-login');
+Route::post('register', RegisterHandler::class)->name('user-register');
+Route::post('login', LoginHandler::class)->name('user-login');

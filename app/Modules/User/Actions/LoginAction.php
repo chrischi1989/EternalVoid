@@ -1,15 +1,15 @@
 <?php
 
-namespace EternalVoid\Modules\User\Actions;
+namespace EternalVoid\User\Actions;
 
-use EternalVoid\Modules\User\Tasks\FindUserTask;
-use EternalVoid\Modules\User\Tasks\LoginUserTask;
-use EternalVoid\Modules\User\UI\Web\Requests\LoginRequest;
+use EternalVoid\User\Tasks\FindUserTask;
+use EternalVoid\User\Tasks\LoginUserTask;
+use EternalVoid\User\UI\Web\Requests\LoginRequest;
 
 /**
  * Class LoginAction
  *
- * @package EternalVoid\Modules\User\Actions
+ * @package EternalVoid\User\Actions
  */
 class LoginAction
 {

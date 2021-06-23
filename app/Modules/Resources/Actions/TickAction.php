@@ -1,9 +1,9 @@
 <?php
 
-namespace EternalVoid\Modules\Resources\Actions;
+namespace EternalVoid\Resources\Actions;
 
-use EternalVoid\Modules\Planet\Models\Planet;
-use EternalVoid\Modules\Planet\Tasks\GetSettledPlanetsTask;
+use EternalVoid\Planet\Models\Planet;
+use EternalVoid\Planet\Tasks\GetSettledPlanetsTask;
 
 class TickAction
 {
@@ -18,42 +18,33 @@ class TickAction
 
     public function run()
     {
-        $planetsCollection = $this->getSettledPlanetsTask->run(['user.research', 'resources', 'production']);
+        $planetsCollection = $this->getSettledPlanetsTask->run(['resources', 'production']);
 
         /** @var Planet $planet */
         foreach ($planetsCollection as $planet) {
-            $research   = $planet->user->research;
             $production = $planet->production;
             $resources  = $planet->resources;
 
             if ($resources->aluminium + $resources->titan + $resources->silizium <= $resources->lager_cap) {
-                $resources->aluminium += $production->aluminium * $this->getMultiplier($planet->bonus, $research->geologie) + $this->game['aluminium'];
-                $resources->titan     += $production->titan * $this->getMultiplier($planet->bonus, $research->speziallegierungen) + $this->game['titan'];
-                $resources->silizium  += $production->silizium * $this->getMultiplier($planet->bonus, $research->geologie) + $this->game['silizium'];
-                $resources->lager_int  = ($resources->aluminium + $resources->titan + $resources->silizium) / $resources->lager_cap;
+                $resources->aluminium += $production->aluminium;
+                $resources->titan     += $production->titan;
+                $resources->silizium  += $production->silizium;
+                $resources->lager_int  = (($resources->aluminium + $resources->titan + $resources->silizium) / $resources->lager_cap) * 100;
             }
 
             if ($resources->arsen + $resources->wasserstoff <= $resources->speziallager_cap) {
-                $resources->arsen           += $production->arsen * $this->getMultiplier($planet->bonus, $research->speziallegierungen);
-                $resources->wasserstoff     += $production->wasserstoff * $this->getMultiplier($planet->bonus, $research->materiestabilisierung);
-                $resources->speziallager_int = ($resources->arsen + $resources->Wasserstoff) / $resources->speziallager_cap;
+                $resources->arsen           += $production->arsen;
+                $resources->wasserstoff     += $production->wasserstoff;
+                $resources->speziallager_int = (($resources->arsen + $resources->Wasserstoff) / $resources->speziallager_cap) * 100;
             }
 
             if ($resources->antimaterie <= $resources->tanks_cap) {
-                $resources->antimaterie += $production->antimaterie * $this->getMultiplier($planet->bonus, $research->materiestabilisierung);
-                $resources->tanks_int    = $resources->antimaterie / $resources->tanks_cap;
+                $resources->antimaterie += $production->antimaterie;
+                $resources->tanks_int    = ($resources->antimaterie / $resources->tanks_cap) * 100;
             }
 
             $resources->save();
         }
     }
-
-    /**
-     * @param int $bonus
-     * @param int $researchLevel
-     * @return float|int
-     */
-    private function getMultiplier(int $bonus, int $researchLevel) {
-        return 1 + (($bonus + ($researchLevel * 5)) / 100);
-    }
+    
 }

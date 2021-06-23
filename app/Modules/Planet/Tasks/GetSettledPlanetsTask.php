@@ -1,12 +1,12 @@
 <?php
 
-namespace EternalVoid\Modules\Planet\Tasks;
+namespace EternalVoid\Planet\Tasks;
 
-use EternalVoid\Modules\Planet\Models\Planet;
+use EternalVoid\Planet\Models\Planet;
 
 /**
  * Class GetSettledPlanetsTask
- * @package EternalVoid\Modules\Planet\Tasks
+ * @package EternalVoid\Planet\Tasks
  */
 class GetSettledPlanetsTask
 {
